@@ -10,22 +10,18 @@ class FeedBackCounter extends React.Component {
     neutral: 0,
     bad: 0,
   };
+
   onClickHandle = e => {
     const { name } = e.currentTarget;
-
-    this.setState(prevState => {
-      return { [name]: prevState[name] + 1 };
+    this.setState({
+      [name]: this.state[name] + 1,
     });
   };
 
-  countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state;
-    return good + neutral + bad;
-  };
+  countTotalFeedback = ({ good, neutral, bad }) => good + neutral + bad;
 
-  positivePercent = () => {
-    const { good } = this.state;
-    const total = this.countTotalFeedback();
+  positivePercent = ({ good }) => {
+    const total = this.countTotalFeedback(this.state);
     return total > 0 ? Math.round((good / total) * 100) : 0;
   };
 
@@ -47,8 +43,8 @@ class FeedBackCounter extends React.Component {
           good={good}
           neutral={neutral}
           bad={bad}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.positivePercent()}
+          total={this.countTotalFeedback(this.state)}
+          positivePercentage={this.positivePercent(this.state)}
         ></Statistics>
       </div>
     );
