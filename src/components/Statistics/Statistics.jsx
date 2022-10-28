@@ -17,7 +17,7 @@ export const Statistics = ({
           <p>Positive feedback: {positivePercentage}%</p>
         </>
       ) : (
-        ''
+        'No feedback given'
       )}
     </>
   );

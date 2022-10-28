@@ -12,3 +12,6 @@
 .counter button:hover {
   background-color: rgb(221, 221, 221);
 }
+.counter button:active {
+  background-color: deepskyblue;
+}
