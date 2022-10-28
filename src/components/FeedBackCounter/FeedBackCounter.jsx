@@ -18,10 +18,10 @@ class FeedBackCounter extends React.Component {
     });
   };
 
-  countTotalFeedback() {
+  countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
-  }
+  };
 
   positivePercent = () => {
     const { good } = this.state;
