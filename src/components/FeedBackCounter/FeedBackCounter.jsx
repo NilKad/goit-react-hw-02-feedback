@@ -2,6 +2,7 @@ import React from 'react';
 // import
 import css from 'components/FeedBackCounter/FeedBackCounter.module.css';
 import { Statistics } from 'components/Statistics/Statistics';
+import FeedbackOption from 'components/FeedbackOptions/FeedbackOptions ';
 
 // export default FeedBack = () => {};
 class FeedBackCounter extends React.Component {
@@ -30,15 +31,10 @@ class FeedBackCounter extends React.Component {
     return (
       <div className={css.counter}>
         <h1>Please leave feedback</h1>
-        <button type="button" name="good" onClick={this.onClickHandle}>
-          Good
-        </button>
-        <button type="button" name="neutral" onClick={this.onClickHandle}>
-          Neutral
-        </button>
-        <button type="button" name="bad" onClick={this.onClickHandle}>
-          Bad
-        </button>
+        <FeedbackOption
+          options={['good', 'neutral', 'bad']}
+          onLeaveFeedback={this.onClickHandle}
+        />
         <Statistics
           good={good}
           neutral={neutral}
